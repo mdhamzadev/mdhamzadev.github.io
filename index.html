@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Md Hamza Dev · Telegram Style Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" href="" id="dynamic-favicon">
+
+    <style>
+        /* ═══════════════════════════════════════
+               CSS VARIABLES – DARK & LIGHT THEMES
+            ═══════════════════════════════════════ */
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --bg-card: #1a1e26;
+            --border-color: #30363d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --text-white: #f0f6fc;
+            --text-link: #58a6ff;
+            --accent-blue: #58a6ff;
+            --accent-green: #3fb950;
+            --accent-orange: #d2991d;
+            --accent-red: #f85149;
+            --telegram-blue: #2aabee;
+            --telegram-blue-hover: #1d93d2;
+            --tag-public-bg: rgba(31, 111, 235, 0.15);
+            --tag-public-text: #58a6ff;
+            --card-hover-border: #58a6ff;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+            --social-btn-bg: #21262d;
+            --social-btn-border: #30363d;
+            --social-btn-color: #8b949e;
+            --social-icon-size: 40px;
+        }
+
+        body.light {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f6f8fa;
+            --bg-tertiary: #eaeef2;
+            --bg-card: #ffffff;
+            --border-color: #d0d7de;
+            --text-primary: #1f2328;
+            --text-secondary: #656d76;
+            --text-white: #1f2328;
+            --text-link: #0969da;
+            --accent-blue: #0969da;
+            --accent-green: #1a7f37;
+            --accent-orange: #9a6700;
+            --accent-red: #cf222e;
+            --telegram-blue: #2aabee;
+            --telegram-blue-hover: #1d93d2;
+            --tag-public-bg: rgba(9, 105, 218, 0.1);
+            --tag-public-text: #0969da;
+            --card-hover-border: #0969da;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+            --social-btn-bg: #f3f4f6;
+            --social-btn-border: #d0d7de;
+            --social-btn-color: #656d76;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(88, 166, 255, 0.04) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 100%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        body.light::before {
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(9, 105, 218, 0.03) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 100%, rgba(139, 92, 246, 0.02) 0%, transparent 50%);
+        }
+
+        /* ── Top Navigation Bar ────────────────────── */
+        .top-nav {
+            width: 100%;
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0 16px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-white);
+            font-weight: 600;
+            font-size: 15px;
+            letter-spacing: -0.3px;
+            text-decoration: none;
+        }
+        .nav-brand i {
+            font-size: 22px;
+            color: var(--telegram-blue);
+            transition: transform 0.2s;
+        }
+        .nav-brand:hover i {
+            transform: rotate(-10deg) scale(1.1);
+        }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .theme-toggle-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 16px;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+            background-color: var(--bg-tertiary);
+        }
+        .theme-toggle-btn:hover {
+            color: var(--text-white);
+            border-color: var(--accent-blue);
+            background-color: var(--bg-primary);
+        }
+        .nav-avatar-sm {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1.5px solid var(--border-color);
+            cursor: pointer;
+            transition: box-shadow 0.2s;
+        }
+        .nav-avatar-sm:hover {
+            box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3);
+        }
+
+        /* ── Main Profile Container ────────────────── */
+        .profile-container {
+            width: 100%;
+            max-width: 620px;
+            padding: 0 16px 40px;
+            position: relative;
+            z-index: 1;
+            margin-top: 10px;
+        }
+
+        /* ── Profile Header Section ─────────────────── */
+        .profile-header-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px 0 12px;
+        }
+
+        /* Avatar with glow ring */
+        .avatar-wrapper {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 16px;
+        }
+        .avatar-glow-ring {
+            position: absolute;
+            top: -7px;
+            left: -7px;
+            width: calc(100% + 14px);
+            height: calc(100% + 14px);
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, #58a6ff, #8b5cf6, #ec4899, #f59e0b, #58a6ff);
+            filter: blur(10px);
+            opacity: 0.55;
+            z-index: 0;
+            animation: rotateGlowRing 10s linear infinite;
+            will-change: transform;
+        }
+        @keyframes rotateGlowRing {
+            0% { transform: rotate(0deg); opacity: 0.4; }
+            50% { opacity: 0.65; }
+            100% { transform: rotate(360deg); opacity: 0.4; }
+        }
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--border-color);
+            position: relative;
+            z-index: 2;
+            display: block;
+            background: var(--bg-tertiary);
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            will-change: transform;
+        }
+        .profile-avatar:hover {
+            transform: scale(1.06);
+            box-shadow: 0 0 0 6px rgba(88, 166, 255, 0.25), 0 12px 28px rgba(0, 0, 0, 0.55);
+            border-color: var(--accent-blue);
+        }
+
+        .profile-name-display {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-white);
+            letter-spacing: -0.6px;
+            text-align: center;
+            margin-bottom: 2px;
+        }
+        .profile-username-display {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            text-align: center;
+            letter-spacing: -0.2px;
+            margin-bottom: 16px;
+        }
+
+        /* ── Social Icons Row – Perfect Height & Smooth ── */
+        .social-icons-row {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center; /* ensures perfect vertical centering */
+            gap: 12px;
+            margin-bottom: 12px;
+            padding: 6px 4px;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .social-icons-row::-webkit-scrollbar {
+            display: none;
+        }
+        .social-icon-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: var(--social-icon-size);
+            height: var(--social-icon-size);
+            border-radius: 50%;
+            background-color: var(--social-btn-bg);
+            border: 1px solid var(--social-btn-border);
+            color: var(--social-btn-color);
+            font-size: 20px;
+            text-decoration: none;
+            flex-shrink: 0;
+            position: relative;
+            outline: none;
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+                        background-color 0.2s,
+                        border-color 0.2s,
+                        box-shadow 0.2s,
+                        color 0.2s;
+            will-change: transform;
+        }
+        .social-icon-link i {
+            position: relative;
+            z-index: 1;
+            transition: color 0.2s;
+        }
+        .social-icon-link:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-blue);
+            color: #fff;
+            box-shadow: 0 8px 14px rgba(0, 0, 0, 0.35), 0 0 0 2px rgba(88, 166, 255, 0.2);
+        }
+        .social-icon-link:active {
+            transform: scale(0.9);
+            transition: transform 0.1s;
+        }
+
+        /* Brand colors – solid, no heavy gradients */
+        .social-icon-link.instagram:hover {
+            background-color: #d6249f;
+            border-color: #d6249f;
+            box-shadow: 0 8px 18px rgba(214, 36, 159, 0.35), 0 0 0 2px rgba(214, 36, 159, 0.25);
+        }
+        .social-icon-link.telegram:hover {
+            background-color: #1d93d2;
+            border-color: #1d93d2;
+            box-shadow: 0 8px 18px rgba(29, 147, 210, 0.35), 0 0 0 2px rgba(29, 147, 210, 0.25);
+        }
+        .social-icon-link.youtube:hover {
+            background-color: #ff0000;
+            border-color: #ff0000;
+            box-shadow: 0 8px 18px rgba(255, 0, 0, 0.35), 0 0 0 2px rgba(255, 0, 0, 0.25);
+        }
+        .social-icon-link.whatsapp:hover {
+            background-color: #25d366;
+            border-color: #25d366;
+            box-shadow: 0 8px 18px rgba(37, 211, 102, 0.35), 0 0 0 2px rgba(37, 211, 102, 0.25);
+        }
+        .social-icon-link.github:hover {
+            background-color: #6e40c9;
+            border-color: #6e40c9;
+            box-shadow: 0 8px 18px rgba(110, 64, 201, 0.35), 0 0 0 2px rgba(110, 64, 201, 0.25);
+        }
+        .social-icon-link.website:hover {
+            background-color: var(--accent-blue);
+            border-color: var(--accent-blue);
+            box-shadow: 0 8px 18px rgba(88, 166, 255, 0.35), 0 0 0 2px rgba(88, 166, 255, 0.25);
+        }
+
+        /* ── Divider ─────────────────────────────────── */
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 18px 0;
+            width: 100%;
+        }
+
+        /* ── Info Card & Contact Items ──────────────── */
+        .info-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 16px 18px;
+            margin-bottom: 12px;
+            transition: background-color 0.3s, border-color 0.3s;
+            box-shadow: var(--shadow-sm);
+        }
+        .info-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+        .info-card-header i {
+            font-size: 18px;
+            color: var(--accent-blue);
+        }
+        .info-card-header .info-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+        .info-card-header .info-badge {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 12px;
+            background-color: rgba(63, 185, 80, 0.12);
+            color: var(--accent-green);
+            border: 1px solid rgba(63, 185, 80, 0.3);
+            margin-left: auto;
+        }
+        .info-card-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-white);
+            margin-bottom: 4px;
+        }
+        .info-card-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 6px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 11px 14px;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+            font-size: 13px;
+        }
+        .contact-item:hover {
+            border-color: var(--accent-blue);
+            background-color: var(--bg-card);
+            transform: translateX(3px);
+        }
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        .contact-icon.whatsapp { background-color: rgba(37, 211, 102, 0.15); color: #25d366; }
+        .contact-icon.email { background-color: rgba(234, 67, 53, 0.15); color: #ea4335; }
+        .contact-icon.telegram-icon { background-color: rgba(42, 171, 238, 0.15); color: #2aabee; }
+        .contact-icon.channel-icon { background-color: rgba(139, 92, 246, 0.15); color: #8b5cf6; }
+        .contact-text { flex: 1; min-width: 0; }
+        .contact-label { font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.3px; font-weight: 500; }
+        .contact-value { font-size: 13px; color: var(--text-white); font-weight: 500; word-break: break-all; }
+        .contact-arrow { color: var(--text-secondary); font-size: 12px; transition: color 0.2s, transform 0.2s; }
+        .contact-item:hover .contact-arrow { color: var(--accent-blue); transform: translateX(3px); }
+
+        /* ── Repository Cards ────────────────────────── */
+        .repo-section-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 16px 0 10px;
+            padding-left: 4px;
+        }
+        .repo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        @media (max-width: 520px) {
+            .repo-grid { grid-template-columns: 1fr; }
+            .profile-avatar, .avatar-wrapper { width: 100px; height: 100px; }
+            .profile-name-display { font-size: 22px; }
+            .profile-username-display { font-size: 14px; }
+            .top-nav { padding: 0 12px; height: 44px; }
+            .nav-brand { font-size: 13px; }
+            .nav-brand i { font-size: 20px; }
+            .theme-toggle-btn { width: 30px; height: 30px; font-size: 14px; }
+            /* Icon size stays 40px – no shrinking */
+        }
+        .repo-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 14px 16px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+            box-shadow: var(--shadow-sm);
+            outline: none;
+        }
+        .repo-card:hover {
+            border-color: var(--card-hover-border);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md), 0 0 0 1px rgba(88, 166, 255, 0.15);
+            background-color: var(--bg-card);
+        }
+        .repo-card-top { display: flex; align-items: center; gap: 8px; }
+        .repo-icon { color: var(--text-secondary); font-size: 14px; transition: color 0.2s; }
+        .repo-card:hover .repo-icon { color: var(--accent-blue); }
+        .repo-name-text { font-size: 13px; font-weight: 600; color: var(--text-link); word-break: break-word; }
+        .repo-card:hover .repo-name-text { text-decoration: underline; }
+        .visibility-tag {
+            font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 10px;
+            text-transform: uppercase; margin-left: auto;
+        }
+        .visibility-tag.public {
+            background-color: var(--tag-public-bg); color: var(--tag-public-text);
+            border: 1px solid rgba(31, 111, 235, 0.4);
+        }
+        .repo-description {
+            font-size: 11px; color: var(--text-secondary); line-height: 1.5;
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+        }
+        .repo-card-bottom { display: flex; align-items: center; gap: 12px; font-size: 11px; color: var(--text-secondary); margin-top: auto; }
+        .repo-language { display: flex; align-items: center; gap: 5px; }
+        .repo-lang-dot { width: 9px; height: 9px; border-radius: 50%; }
+        .repo-lang-dot.php { background-color: #4f5d95; }
+        .repo-lang-dot.html { background-color: #e34c26; }
+        .repo-stars i { color: var(--accent-orange); font-size: 10px; }
+
+        /* ── Footer ──────────────────────────────────── */
+        .page-footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-size: 11px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+        .page-footer a { color: var(--text-link); text-decoration: none; font-weight: 500; }
+        .page-footer a:hover { text-decoration: underline; }
+        .footer-heart-icon {
+            color: #f85149;
+            font-size: 12px;
+            animation: heartbeat 1.4s ease infinite;
+        }
+        @keyframes heartbeat {
+            0%,100%{transform:scale(1);}
+            25%{transform:scale(1.2);}
+            50%{transform:scale(1);}
+            75%{transform:scale(1.15);}
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="top-nav">
+        <div class="nav-left">
+            <a href="#" class="nav-brand">
+                <i class="fa-brands fa-telegram"></i> <span>Profile</span>
+            </a>
+        </div>
+        <div class="nav-right">
+            <button class="theme-toggle-btn" id="themeToggle" title="Toggle dark/light mode">
+                <i class="fa-solid fa-moon" id="themeIcon"></i>
+            </button>
+            <img src="" class="nav-avatar-sm" id="navAvatar" alt="Avatar" width="30" height="30" loading="lazy">
+        </div>
+    </nav>
+
+    <main class="profile-container">
+        <div class="profile-header-section">
+            <div class="avatar-wrapper">
+                <div class="avatar-glow-ring"></div>
+                <img src="" class="profile-avatar" id="profileAvatar" alt="Profile photo" width="120" height="120" loading="eager">
+            </div>
+            <h1 class="profile-name-display" id="profileName">Md Hamza Dev</h1>
+            <p class="profile-username-display" id="profileUsername">@mdhamza_deu</p>
+
+            <!-- Social icons – consistent 40px height, no shrinking -->
+            <div class="social-icons-row">
+                <a href="#" class="social-icon-link instagram" target="_blank" id="socialInstagram" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon-link telegram" target="_blank" id="socialTelegram" aria-label="Telegram">
+                    <i class="fa-brands fa-telegram"></i>
+                </a>
+                <a href="#" class="social-icon-link youtube" target="_blank" id="socialYouTube" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="#" class="social-icon-link whatsapp" target="_blank" id="socialWhatsApp" aria-label="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="#" class="social-icon-link github" target="_blank" id="socialGitHub" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="#" class="social-icon-link website" target="_blank" id="socialWebsite" aria-label="Website">
+                    <i class="fa-solid fa-globe"></i>
+                </a>
+            </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="info-card">
+            <div class="info-card-header">
+                <i class="fa-solid fa-circle-info"></i>
+                <span class="info-label">Developer Profile</span>
+                <span class="info-badge" id="subscriberBadge">56 subscribers</span>
+            </div>
+            <div class="info-card-title" id="infoCardTitle">INFO — Md Hamza Dev</div>
+            <p class="info-card-desc" id="infoCardDesc">Full‑stack developer building authentication systems & web solutions.</p>
+        </div>
+
+        <div class="contact-list">
+            <a href="#" class="contact-item" id="contactWhatsApp" target="_blank">
+                <span class="contact-icon whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
+                <span class="contact-text"><span class="contact-label">Mobile / WhatsApp</span><span class="contact-value" id="contactPhone">+91 9088843309</span></span>
+                <i class="fa-solid fa-chevron-right contact-arrow"></i>
+            </a>
+            <a href="#" class="contact-item" id="contactEmail" target="_blank">
+                <span class="contact-icon email"><i class="fa-solid fa-envelope"></i></span>
+                <span class="contact-text"><span class="contact-label">Email</span><span class="contact-value" id="contactEmailValue">contact@techwithths.in</span></span>
+                <i class="fa-solid fa-chevron-right contact-arrow"></i>
+            </a>
+            <a href="#" class="contact-item" id="contactTelegram" target="_blank">
+                <span class="contact-icon telegram-icon"><i class="fa-brands fa-telegram"></i></span>
+                <span class="contact-text"><span class="contact-label">Telegram</span><span class="contact-value" id="contactTelegramValue">@mdhamza_deu</span></span>
+                <i class="fa-solid fa-chevron-right contact-arrow"></i>
+            </a>
+            <a href="#" class="contact-item" id="contactChannel" target="_blank">
+                <span class="contact-icon channel-icon"><i class="fa-solid fa-satellite-dish"></i></span>
+                <span class="contact-text"><span class="contact-label">Developer Channel</span><span class="contact-value" id="contactChannelValue">@techwithths</span></span>
+                <i class="fa-solid fa-chevron-right contact-arrow"></i>
+            </a>
+            <a href="#" class="contact-item" id="contactGroup" target="_blank">
+                <span class="contact-icon channel-icon" style="background-color: rgba(236,72,153,0.12);color:#ec4899;">
+                    <i class="fa-solid fa-users"></i>
+                </span>
+                <span class="contact-text"><span class="contact-label">Developer Group</span><span class="contact-value" id="contactGroupValue">@techwithths_group</span></span>
+                <i class="fa-solid fa-chevron-right contact-arrow"></i>
+            </a>
+        </div>
+
+        <p class="repo-section-label">Popular Repositories</p>
+        <div class="repo-grid" id="repoGrid"></div>
+
+        <footer class="page-footer">
+            <span>&copy; <span id="copyrightYear">2026</span></span>
+            <span>·</span>
+            <a href="#" id="footerGithubLink">mdhamzadev</a>
+            <span>·</span>
+            <span>Built with</span>
+            <i class="fa-solid fa-heart footer-heart-icon"></i>
+            <span>·</span>
+            <span>All rights reserved.</span>
+        </footer>
+    </main>
+
+    <script>
+        (function() {
+            // ╔══════════════════════════════════╗
+            // ║   🔧 CENTRAL CONFIGURATION    ║
+            // ╚══════════════════════════════════╝
+            const CONFIG = {
+                fullName: 'Md Hamza Dev',
+                username: 'mdhamza_deu',
+                githubUsername: 'mdhamzadev',
+                profileImageUrl: 'https://avatars.githubusercontent.com/u/151901211?v=4&size=256',
+
+                bio: 'Full-stack developer building authentication systems & web solutions. Open-source enthusiast. Join my developer channels for resources and support.',
+                infoTitle: 'INFO — Md Hamza Dev',
+                subscriberCount: 56,
+
+                phone: '+91 9088843309',
+                email: 'contact@techwithths.in',
+                telegramUsername: 'mdhamza_dev',
+                devChannel: 'techwithths',
+                devGroup: 'techwithths_group',
+
+                githubProfileUrl: 'https://github.com/mdhamzadev',
+                websiteUrl: 'https://www.techwithths.in',
+                youtubeUrl: 'https://youtube.com/@mdhamzadev',
+                instagramUrl: 'https://instagram.com/mdhamzadev',
+                telegramProfileUrl: 'https://t.me/mdhamza_dev',
+                telegramChannelUrl: 'https://t.me/techwithths',
+                telegramGroupUrl: 'https://t.me/techwithths_group',
+                whatsappUrl: 'https://wa.me/919619575484',
+                emailMailtoUrl: 'mailto:contact@techwithths.in',
+
+                repositories: [
+                    {
+                        name: 'php-authentication-system',
+                        url: 'https://github.com/mdhamzadev/php-authentication-system',
+                        description: 'Auth system with Google login & manual register (PHP, HTML, CSS, JS, MySQL).',
+                        language: 'PHP', langClass: 'php', stars: 1, visibility: 'Public'
+                    },
+                    {
+                        name: 'mdhamzadev.github.io',
+                        url: 'https://github.com/mdhamzadev/mdhamzadev.github.io',
+                        description: 'My personal website — modern design, deployed on GitHub Pages.',
+                        language: 'HTML', langClass: 'html', stars: 0, visibility: 'Public'
+                    }
+                ]
+            };
+
+            // ══════════════════════════════════
+            // 🌗 THEME LOGIC
+            // ══════════════════════════════════
+            const body = document.body;
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            function setTheme(mode) {
+                if (mode === 'light') {
+                    body.classList.add('light');
+                    if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    body.classList.remove('light');
+                    if (themeIcon) themeIcon.className = 'fa-solid fa-moon';
+                    localStorage.setItem('theme', 'dark');
+                }
+            }
+            setTheme(localStorage.getItem('theme') || 'dark');
+            themeToggle.addEventListener('click', () => {
+                setTheme(body.classList.contains('light') ? 'dark' : 'light');
+            });
+
+            // ══════════════════════════════════
+            // 📦 POPULATE DOM FROM CONFIG
+            // ══════════════════════════════════
+            document.getElementById('dynamic-favicon').href = CONFIG.profileImageUrl;
+            document.title = CONFIG.fullName + ' · Telegram Style Profile';
+
+            document.getElementById('navAvatar').src = CONFIG.profileImageUrl;
+            document.getElementById('profileAvatar').src = CONFIG.profileImageUrl;
+            document.getElementById('profileName').textContent = CONFIG.fullName;
+            document.getElementById('profileUsername').textContent = '@' + CONFIG.username;
+
+            document.getElementById('socialInstagram').href = CONFIG.instagramUrl;
+            document.getElementById('socialTelegram').href = CONFIG.telegramProfileUrl;
+            document.getElementById('socialYouTube').href = CONFIG.youtubeUrl;
+            document.getElementById('socialWhatsApp').href = CONFIG.whatsappUrl;
+            document.getElementById('socialGitHub').href = CONFIG.githubProfileUrl;
+            document.getElementById('socialWebsite').href = CONFIG.websiteUrl;
+
+            document.getElementById('subscriberBadge').textContent = CONFIG.subscriberCount + ' subscribers';
+            document.getElementById('infoCardTitle').textContent = CONFIG.infoTitle;
+            document.getElementById('infoCardDesc').textContent = CONFIG.bio;
+
+            document.getElementById('contactPhone').textContent = CONFIG.phone;
+            document.getElementById('contactEmailValue').textContent = CONFIG.email;
+            document.getElementById('contactTelegramValue').textContent = '@' + CONFIG.telegramUsername;
+            document.getElementById('contactChannelValue').textContent = '@' + CONFIG.devChannel;
+            document.getElementById('contactGroupValue').textContent = '@' + CONFIG.devGroup;
+
+            document.getElementById('contactWhatsApp').href = CONFIG.whatsappUrl;
+            document.getElementById('contactEmail').href = CONFIG.emailMailtoUrl;
+            document.getElementById('contactTelegram').href = CONFIG.telegramProfileUrl;
+            document.getElementById('contactChannel').href = CONFIG.telegramChannelUrl;
+            document.getElementById('contactGroup').href = CONFIG.telegramGroupUrl;
+
+            document.getElementById('copyrightYear').textContent = new Date().getFullYear();
+            const footerLink = document.getElementById('footerGithubLink');
+            footerLink.href = CONFIG.githubProfileUrl;
+            footerLink.textContent = CONFIG.githubUsername;
+
+            const repoGrid = document.getElementById('repoGrid');
+            repoGrid.innerHTML = '';
+            CONFIG.repositories.forEach(repo => {
+                const card = document.createElement('a');
+                card.href = repo.url;
+                card.target = '_blank';
+                card.rel = 'noopener noreferrer';
+                card.className = 'repo-card';
+                card.innerHTML = `
+                    <div class="repo-card-top">
+                        <i class="fa-regular fa-folder repo-icon"></i>
+                        <span class="repo-name-text">${repo.name}</span>
+                        <span class="visibility-tag public">${repo.visibility}</span>
+                    </div>
+                    <p class="repo-description">${repo.description}</p>
+                    <div class="repo-card-bottom">
+                        <span class="repo-language">
+                            <span class="repo-lang-dot ${repo.langClass}"></span> ${repo.language}
+                        </span>
+                        <span class="repo-stars">
+                            <i class="fa-regular fa-star"></i> <span>${repo.stars}</span>
+                        </span>
+                    </div>`;
+                repoGrid.appendChild(card);
+            });
+
+            // Lightweight ripple (kept for tactile feedback)
+            document.querySelectorAll('.social-icon-link').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    ripple.style.cssText = `
+                        position:absolute; border-radius:50%;
+                        background:rgba(255,255,255,0.25);
+                        transform:scale(0); animation:ripple 0.5s ease-out forwards;
+                        pointer-events:none; z-index:0;
+                    `;
+                    const size = Math.max(btn.offsetWidth, btn.offsetHeight);
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    ripple.style.left = (e.clientX - btn.getBoundingClientRect().left - size/2) + 'px';
+                    ripple.style.top = (e.clientY - btn.getBoundingClientRect().top - size/2) + 'px';
+                    btn.appendChild(ripple);
+                    ripple.addEventListener('animationend', () => ripple.remove());
+                });
+            });
+            if (!document.getElementById('ripple-keyframes')) {
+                const s = document.createElement('style');
+                s.id = 'ripple-keyframes';
+                s.textContent = '@keyframes ripple{to{transform:scale(4);opacity:0;}}';
+                document.head.appendChild(s);
+            }
+        })();
+    </script>
+</body>
+</html>
