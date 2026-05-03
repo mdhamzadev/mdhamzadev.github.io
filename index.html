@@ -265,7 +265,7 @@
             display: flex;
             flex-wrap: nowrap;
             justify-content: center;
-            align-items: center; /* ensures perfect vertical centering */
+            align-items: center;
             gap: 12px;
             margin-bottom: 12px;
             padding: 6px 4px;
@@ -314,7 +314,7 @@
             transition: transform 0.1s;
         }
 
-        /* Brand colors – solid, no heavy gradients */
+        /* Brand colors – solid hover effects (WhatsApp removed) */
         .social-icon-link.instagram:hover {
             background-color: #d6249f;
             border-color: #d6249f;
@@ -329,11 +329,6 @@
             background-color: #ff0000;
             border-color: #ff0000;
             box-shadow: 0 8px 18px rgba(255, 0, 0, 0.35), 0 0 0 2px rgba(255, 0, 0, 0.25);
-        }
-        .social-icon-link.whatsapp:hover {
-            background-color: #25d366;
-            border-color: #25d366;
-            box-shadow: 0 8px 18px rgba(37, 211, 102, 0.35), 0 0 0 2px rgba(37, 211, 102, 0.25);
         }
         .social-icon-link.github:hover {
             background-color: #6e40c9;
@@ -437,7 +432,6 @@
             font-size: 16px;
             flex-shrink: 0;
         }
-        .contact-icon.whatsapp { background-color: rgba(37, 211, 102, 0.15); color: #25d366; }
         .contact-icon.email { background-color: rgba(234, 67, 53, 0.15); color: #ea4335; }
         .contact-icon.telegram-icon { background-color: rgba(42, 171, 238, 0.15); color: #2aabee; }
         .contact-icon.channel-icon { background-color: rgba(139, 92, 246, 0.15); color: #8b5cf6; }
@@ -471,7 +465,6 @@
             .nav-brand { font-size: 13px; }
             .nav-brand i { font-size: 20px; }
             .theme-toggle-btn { width: 30px; height: 30px; font-size: 14px; }
-            /* Icon size stays 40px – no shrinking */
         }
         .repo-card {
             background-color: var(--bg-secondary);
@@ -571,7 +564,7 @@
             <h1 class="profile-name-display" id="profileName">Md Hamza Dev</h1>
             <p class="profile-username-display" id="profileUsername">@mdhamza_deu</p>
 
-            <!-- Social icons – consistent 40px height, no shrinking -->
+            <!-- Social icons – WHATSAPP ICON REMOVED completely -->
             <div class="social-icons-row">
                 <a href="#" class="social-icon-link instagram" target="_blank" id="socialInstagram" aria-label="Instagram">
                     <i class="fa-brands fa-instagram"></i>
@@ -582,9 +575,6 @@
                 <a href="#" class="social-icon-link youtube" target="_blank" id="socialYouTube" aria-label="YouTube">
                     <i class="fa-brands fa-youtube"></i>
                 </a>
-                <!--a href="#" class="social-icon-link whatsapp" target="_blank" id="socialWhatsApp" aria-label="WhatsApp">
-                    <i class="fa-brands fa-whatsapp"></i>
-            </a-->
                 <a href="#" class="social-icon-link github" target="_blank" id="socialGitHub" aria-label="GitHub">
                     <i class="fa-brands fa-github"></i>
                 </a>
@@ -600,18 +590,17 @@
             <div class="info-card-header">
                 <i class="fa-solid fa-circle-info"></i>
                 <span class="info-label">Developer Profile</span>
-                <span class="info-badge" id="subscriberBadge">Devloper</span>
+                <span class="info-badge" id="subscriberBadge">FullStackDeveloper</span>
             </div>
-            <div class="info-card-title" id="infoCardTitle">INFO — Md Hamza Dev</div>
-            <p class="info-card-desc" id="infoCardDesc">Full‑stack developer building authentication systems & web solutions.</p>
+            <div class="info-card-title" id="infoCardTitle">Full-Stack Web Developer | SEO Strategist | Meta Ads Specialist | Digital Product Creator</div>
+            <p class="info-card-desc" id="infoCardDesc">I am a results-driven full-stack developer and digital solutions expert specializing in building high-performance websites, scalable web applications, and revenue-focused digital systems.
+With expertise in web development, search engine optimization (SEO), Meta (Facebook & Instagram) ads, and digital product ecosystems, I help businesses grow their online presence, increase conversions, and automate their digital operations.
+From developing secure authentication systems and payment integrations to optimizing websites for search rankings and running high-ROI ad campaigns — I focus on delivering real business results, not just code.
+I also create and provide premium digital products, scripts, and tools designed to help entrepreneurs and developers launch faster and scale smarter.</p>
         </div>
 
         <div class="contact-list">
-            <!--a href="#" class="contact-item" id="contactWhatsApp" target="_blank">
-                <span class="contact-icon whatsapp"><i class="fa-brands fa-whatsapp"></i></span>
-                <span class="contact-text"><span class="contact-label">Mobile / WhatsApp</span><span class="contact-value" id="contactPhone">+91 9619575484</span></span>
-                <i class="fa-solid fa-chevron-right contact-arrow"></i>
-        </a-->
+            <!-- WhatsApp contact item completely removed -->
             <a href="#" class="contact-item" id="contactEmail" target="_blank">
                 <span class="contact-icon email"><i class="fa-solid fa-envelope"></i></span>
                 <span class="contact-text"><span class="contact-label">Email</span><span class="contact-value" id="contactEmailValue">contact@techwithths.in</span></span>
@@ -654,21 +643,24 @@
     <script>
         (function() {
             // ╔══════════════════════════════════╗
-            // ║   🔧 CENTRAL CONFIGURATION    ║
+            // ║   🔧 CONFIGURATION (WHATSAPP REMOVED)   ║
             // ╚══════════════════════════════════╝
             const CONFIG = {
                 fullName: 'Md Hamza Dev',
-                username: 'mdhamza_deu',
+                username: 'mdhamza_dev',
                 githubUsername: 'mdhamzadev',
                 profileImageUrl: 'https://avatars.githubusercontent.com/u/151901211?v=4&size=256',
 
-                bio: 'Full-stack developer building authentication systems & web solutions. Open-source enthusiast. Join my developer channels for resources and support.',
-                infoTitle: 'INFO — Md Hamza Dev',
-                subscriberCount: 56,
+                bio: 'I am a results-driven full-stack developer and digital solutions expert specializing in building high-performance websites, scalable web applications, and revenue-focused digital systems.
+With expertise in web development, search engine optimization (SEO), Meta (Facebook & Instagram) ads, and digital product ecosystems, I help businesses grow their online presence, increase conversions, and automate their digital operations.
+From developing secure authentication systems and payment integrations to optimizing websites for search rankings and running high-ROI ad campaigns — I focus on delivering real business results, not just code.
+I also create and provide premium digital products, scripts, and tools designed to help entrepreneurs and developers launch faster and scale smarter.',
+                infoTitle: 'Full-Stack Web Developer | SEO Strategist | Meta Ads Specialist | Digital Product Creator',
+                subscriberCount: FullStackDeveloper,
 
-                phone: '+91 9088843309',
+                // phone and whatsapp fields completely removed
                 email: 'contact@techwithths.in',
-                telegramUsername: 'mdhamza_dev',
+                telegramUsername: 'mdhamza_deu',
                 devChannel: 'techwithths',
                 devGroup: 'techwithths_group',
 
@@ -676,10 +668,9 @@
                 websiteUrl: 'https://www.techwithths.in',
                 youtubeUrl: 'https://youtube.com/@TECHWITHTKS',
                 instagramUrl: 'https://instagram.com/mdhamzadev',
-                telegramProfileUrl: 'https://t.me/mdhamza_dev',
+                telegramProfileUrl: 'https://t.me/mdhamza_deu',
                 telegramChannelUrl: 'https://t.me/techwithths',
                 telegramGroupUrl: 'https://t.me/techwithths_group',
-                whatsappUrl: 'https://wa.me/',
                 emailMailtoUrl: 'mailto:contact@techwithths.in',
 
                 repositories: [
@@ -721,7 +712,7 @@
             });
 
             // ══════════════════════════════════
-            // 📦 POPULATE DOM FROM CONFIG
+            // 📦 POPULATE DOM FROM CONFIG (NO WHATSAPP)
             // ══════════════════════════════════
             document.getElementById('dynamic-favicon').href = CONFIG.profileImageUrl;
             document.title = CONFIG.fullName + ' · Telegram Style Profile';
@@ -731,24 +722,23 @@
             document.getElementById('profileName').textContent = CONFIG.fullName;
             document.getElementById('profileUsername').textContent = '@' + CONFIG.username;
 
-            document.getElementById('socialInstagram').href = CONFIG.instagramUrl;
-            document.getElementById('socialTelegram').href = CONFIG.telegramProfileUrl;
-            document.getElementById('socialYouTube').href = CONFIG.youtubeUrl;
-            document.getElementById('socialWhatsApp').href = CONFIG.whatsappUrl;
-            document.getElementById('socialGitHub').href = CONFIG.githubProfileUrl;
-            document.getElementById('socialWebsite').href = CONFIG.websiteUrl;
+            // Social links - WhatsApp link element removed, so no assignment needed
+            document.getElementById('socialInstagram')?.setAttribute('href', CONFIG.instagramUrl);
+            document.getElementById('socialTelegram')?.setAttribute('href', CONFIG.telegramProfileUrl);
+            document.getElementById('socialYouTube')?.setAttribute('href', CONFIG.youtubeUrl);
+            document.getElementById('socialGitHub')?.setAttribute('href', CONFIG.githubProfileUrl);
+            document.getElementById('socialWebsite')?.setAttribute('href', CONFIG.websiteUrl);
 
             document.getElementById('subscriberBadge').textContent = CONFIG.subscriberCount + ' subscribers';
             document.getElementById('infoCardTitle').textContent = CONFIG.infoTitle;
             document.getElementById('infoCardDesc').textContent = CONFIG.bio;
 
-            document.getElementById('contactPhone').textContent = CONFIG.phone;
+            // No phone/whatsapp contact fields anymore
             document.getElementById('contactEmailValue').textContent = CONFIG.email;
             document.getElementById('contactTelegramValue').textContent = '@' + CONFIG.telegramUsername;
             document.getElementById('contactChannelValue').textContent = '@' + CONFIG.devChannel;
             document.getElementById('contactGroupValue').textContent = '@' + CONFIG.devGroup;
 
-            document.getElementById('contactWhatsApp').href = CONFIG.whatsappUrl;
             document.getElementById('contactEmail').href = CONFIG.emailMailtoUrl;
             document.getElementById('contactTelegram').href = CONFIG.telegramProfileUrl;
             document.getElementById('contactChannel').href = CONFIG.telegramChannelUrl;
@@ -785,7 +775,7 @@
                 repoGrid.appendChild(card);
             });
 
-            // Lightweight ripple (kept for tactile feedback)
+            // Lightweight ripple effect (kept for interactive feedback)
             document.querySelectorAll('.social-icon-link').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     const ripple = document.createElement('span');
