@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Md Hamza Dev · MY Profile</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="icon" type="image/png" href="" id="dynamic-favicon">
+    <link rel="icon" type="image/png" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2358a6ff'/%3E%3C/svg%3E" id="dynamic-favicon">
 
     <style>
         /* ═══════════════════════════════════════
@@ -123,13 +123,8 @@
             }
         }
         @media (pointer: coarse) {
-            body {
-                cursor: auto;
-            }
-            .cursor-dot,
-            .cursor-ring {
-                display: none;
-            }
+            body { cursor: auto; }
+            .cursor-dot, .cursor-ring { display: none; }
         }
 
         /* ═══════════════════════════════════════
@@ -159,29 +154,14 @@
             border-radius: 50%;
             animation: spinLoader 0.8s linear infinite;
         }
-        @keyframes spinLoader {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-        .loader-text {
-            margin-top: 16px;
-            color: var(--text-secondary);
-            font-size: 13px;
-            letter-spacing: 0.4px;
-        }
+        @keyframes spinLoader { to { transform: rotate(360deg); } }
+        .loader-text { margin-top: 16px; color: var(--text-secondary); font-size: 13px; letter-spacing: 0.4px; }
 
         /* ═══════════════════════════════════════
-           PARTICLE CANVAS (Exploding objects)
+           PARTICLE CANVAS
            ═══════════════════════════════════════ */
-        #particleCanvas {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 99980;
-        }
+        #particleCanvas { position: fixed; inset: 0; pointer-events: none; z-index: 99980; }
 
-        /* Subtle background pattern */
         body::before {
             content: '';
             position: fixed;
@@ -189,16 +169,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background:
-                radial-gradient(ellipse at 50% 0%, rgba(88, 166, 255, 0.04) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 100%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
+            background: radial-gradient(ellipse at 50% 0%, rgba(88, 166, 255, 0.04) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 100%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
             pointer-events: none;
             z-index: 0;
         }
         body.light::before {
-            background:
-                radial-gradient(ellipse at 50% 0%, rgba(9, 105, 218, 0.03) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 100%, rgba(139, 92, 246, 0.02) 0%, transparent 50%);
+            background: radial-gradient(ellipse at 50% 0%, rgba(9, 105, 218, 0.03) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 100%, rgba(139, 92, 246, 0.02) 0%, transparent 50%);
         }
 
         /* ── Top Navigation Bar ────────────────────── */
@@ -217,947 +195,201 @@
             backdrop-filter: blur(10px);
             transition: background-color 0.3s, border-color 0.3s;
         }
-        .nav-left {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-white);
-            font-weight: 600;
-            font-size: 15px;
-            letter-spacing: -0.3px;
-            text-decoration: none;
-            transition: color 0.3s, transform 0.2s;
-        }
-        .nav-brand i {
-            font-size: 22px;
-            color: var(--telegram-blue);
-            transition: transform 0.2s;
-        }
-        .nav-brand:hover {
-            transform: translateX(2px);
-        }
-        .nav-brand:hover i {
-            transform: rotate(-10deg) scale(1.1);
-        }
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .theme-toggle-btn {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-secondary);
-            font-size: 16px;
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-            background-color: var(--bg-tertiary);
-        }
-        .theme-toggle-btn:hover {
-            color: var(--text-white);
-            border-color: var(--accent-blue);
-            background-color: var(--bg-primary);
-            transform: rotate(20deg) scale(1.1);
-        }
-        .theme-toggle-btn:active {
-            transform: scale(0.85);
-            transition: transform 0.1s;
-        }
-        .nav-avatar-sm {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 1.5px solid var(--border-color);
-            cursor: pointer;
-            transition: box-shadow 0.2s, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .nav-avatar-sm:hover {
-            box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3);
-            transform: scale(1.1);
-        }
-        .nav-avatar-sm:active {
-            transform: scale(0.9);
-            transition: transform 0.1s;
-        }
+        .nav-left { display: flex; align-items: center; gap: 10px; }
+        .nav-brand { display: flex; align-items: center; gap: 8px; color: var(--text-white); font-weight: 600; font-size: 15px; text-decoration: none; transition: color 0.3s, transform 0.2s; }
+        .nav-brand i { font-size: 22px; color: var(--telegram-blue); transition: transform 0.2s; }
+        .nav-brand:hover { transform: translateX(2px); }
+        .nav-brand:hover i { transform: rotate(-10deg) scale(1.1); }
+        .nav-right { display: flex; align-items: center; gap: 12px; }
+        .theme-toggle-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-secondary); font-size: 16px; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1); background-color: var(--bg-tertiary); }
+        .theme-toggle-btn:hover { color: var(--text-white); border-color: var(--accent-blue); background-color: var(--bg-primary); transform: rotate(20deg) scale(1.1); }
+        .nav-avatar-sm { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--border-color); cursor: pointer; transition: box-shadow 0.2s, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .nav-avatar-sm:hover { box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3); transform: scale(1.1); }
 
         /* ── Main Profile Container ────────────────── */
-        .profile-container {
-            width: 100%;
-            max-width: 720px;
-            padding: 0 16px 40px;
-            position: relative;
-            z-index: 1;
-            margin-top: 10px;
-        }
+        .profile-container { width: 100%; max-width: 720px; padding: 0 16px 40px; position: relative; z-index: 1; margin-top: 10px; }
 
         /* ── Profile Header Section ─────────────────── */
-        .profile-header-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 24px 0 12px;
-            /* Parallax: moves slightly faster than scroll */
-            transform: translateY(calc(var(--scroll-offset, 0px) * -0.1));
-            transition: transform 0.1s linear;
-            will-change: transform;
-        }
-        .avatar-wrapper {
-            position: relative;
-            width: 120px;
-            height: 120px;
-            margin-bottom: 16px;
-            /* 3D tilt layer */
-            transform-style: preserve-3d;
-            perspective: 800px;
-        }
-        .avatar-glow-ring {
-            position: absolute;
-            top: -7px;
-            left: -7px;
-            width: calc(100% + 14px);
-            height: calc(100% + 14px);
-            border-radius: 50%;
-            background: conic-gradient(from 0deg, #58a6ff, #8b5cf6, #ec4899, #f59e0b, #58a6ff);
-            filter: blur(10px);
-            opacity: 0.55;
-            z-index: 0;
-            animation: rotateGlowRing 10s linear infinite;
-            will-change: transform;
-        }
-        @keyframes rotateGlowRing {
-            0% {
-                transform: rotate(0deg);
-                opacity: 0.4;
-            }
-            50% {
-                opacity: 0.65;
-            }
-            100% {
-                transform: rotate(360deg);
-                opacity: 0.4;
-            }
-        }
-        .profile-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--border-color);
-            position: relative;
-            z-index: 2;
-            display: block;
-            background: var(--bg-tertiary);
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s, border-color 0.3s;
-            will-change: transform;
-        }
-        .profile-avatar:hover {
-            transform: scale(1.08);
-            box-shadow: 0 0 0 6px rgba(88, 166, 255, 0.25), 0 12px 28px rgba(0, 0, 0, 0.55);
-            border-color: var(--accent-blue);
-        }
-        .profile-avatar:active {
-            transform: scale(0.94);
-            transition: transform 0.1s;
-        }
-
-        .profile-name-display {
-            font-size: 26px;
-            font-weight: 700;
-            color: var(--text-white);
-            letter-spacing: -0.6px;
-            text-align: center;
-            margin-bottom: 2px;
-            /* Micro interaction: hover scale */
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .profile-name-display:hover {
-            transform: scale(1.03);
-        }
-        .profile-username-display {
-            font-size: 16px;
-            font-weight: 400;
-            color: var(--text-secondary);
-            text-align: center;
-            letter-spacing: -0.2px;
-            margin-bottom: 16px;
-            transition: color 0.3s;
-        }
+        .profile-header-section { display: flex; flex-direction: column; align-items: center; padding: 24px 0 12px; transform: translateY(calc(var(--scroll-offset, 0px) * -0.1)); transition: transform 0.1s linear; will-change: transform; }
+        .avatar-wrapper { position: relative; width: 120px; height: 120px; margin-bottom: 16px; transform-style: preserve-3d; perspective: 800px; }
+        .avatar-glow-ring { position: absolute; top: -7px; left: -7px; width: calc(100% + 14px); height: calc(100% + 14px); border-radius: 50%; background: conic-gradient(from 0deg, #58a6ff, #8b5cf6, #ec4899, #f59e0b, #58a6ff); filter: blur(10px); opacity: 0.55; z-index: 0; animation: rotateGlowRing 10s linear infinite; }
+        @keyframes rotateGlowRing { 0% { transform: rotate(0deg); opacity: 0.4; } 50% { opacity: 0.65; } 100% { transform: rotate(360deg); opacity: 0.4; } }
+        .profile-avatar { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--border-color); position: relative; z-index: 2; display: block; background: var(--bg-tertiary); transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s, border-color 0.3s; }
+        .profile-avatar:hover { transform: scale(1.08); box-shadow: 0 0 0 6px rgba(88, 166, 255, 0.25), 0 12px 28px rgba(0, 0, 0, 0.55); border-color: var(--accent-blue); }
+        .profile-name-display { font-size: 26px; font-weight: 700; color: var(--text-white); text-align: center; margin-bottom: 2px; transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .profile-name-display:hover { transform: scale(1.03); }
+        .profile-username-display { font-size: 16px; font-weight: 400; color: var(--text-secondary); text-align: center; margin-bottom: 16px; }
 
         /* ── Social Icons Row ────────────────────────── */
-        .social-icons-row {
-            display: flex;
-            flex-wrap: nowrap;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-            padding: 6px 4px;
-            width: 100%;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-        .social-icons-row::-webkit-scrollbar {
-            display: none;
-        }
-        .social-icon-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: var(--social-icon-size);
-            height: var(--social-icon-size);
-            border-radius: 50%;
-            background-color: var(--social-btn-bg);
-            border: 1px solid var(--social-btn-border);
-            color: var(--social-btn-color);
-            font-size: 20px;
-            text-decoration: none;
-            flex-shrink: 0;
-            position: relative;
-            outline: none;
-            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
-                background-color 0.2s, border-color 0.2s,
-                box-shadow 0.2s, color 0.2s;
-            will-change: transform;
-        }
-        .social-icon-link i {
-            position: relative;
-            z-index: 1;
-            transition: color 0.2s;
-        }
-        .social-icon-link:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-blue);
-            color: #fff;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(88, 166, 255, 0.2);
-        }
-        .social-icon-link:active {
-            transform: scale(0.85);
-            transition: transform 0.1s;
-        }
-        .social-icon-link.instagram:hover {
-            background-color: #d6249f;
-            border-color: #d6249f;
-            box-shadow: 0 10px 22px rgba(214, 36, 159, 0.4), 0 0 0 3px rgba(214, 36, 159, 0.25);
-        }
-        .social-icon-link.telegram:hover {
-            background-color: #1d93d2;
-            border-color: #1d93d2;
-            box-shadow: 0 10px 22px rgba(29, 147, 210, 0.4), 0 0 0 3px rgba(29, 147, 210, 0.25);
-        }
-        .social-icon-link.youtube:hover {
-            background-color: #ff0000;
-            border-color: #ff0000;
-            box-shadow: 0 10px 22px rgba(255, 0, 0, 0.4), 0 0 0 3px rgba(255, 0, 0, 0.25);
-        }
-        .social-icon-link.github:hover {
-            background-color: #6e40c9;
-            border-color: #6e40c9;
-            box-shadow: 0 10px 22px rgba(110, 64, 201, 0.4), 0 0 0 3px rgba(110, 64, 201, 0.25);
-        }
-        .social-icon-link.website:hover {
-            background-color: var(--accent-blue);
-            border-color: var(--accent-blue);
-            box-shadow: 0 10px 22px rgba(88, 166, 255, 0.4), 0 0 0 3px rgba(88, 166, 255, 0.25);
-        }
+        .social-icons-row { display: flex; flex-wrap: nowrap; justify-content: center; gap: 12px; margin-bottom: 12px; padding: 6px 4px; overflow-x: auto; }
+        .social-icons-row::-webkit-scrollbar { display: none; }
+        .social-icon-link { display: inline-flex; align-items: center; justify-content: center; width: var(--social-icon-size); height: var(--social-icon-size); border-radius: 50%; background-color: var(--social-btn-bg); border: 1px solid var(--social-btn-border); color: var(--social-btn-color); font-size: 20px; text-decoration: none; flex-shrink: 0; position: relative; transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s, border-color 0.2s, box-shadow 0.2s; }
+        .social-icon-link:hover { transform: translateY(-5px); border-color: var(--accent-blue); color: #fff; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(88, 166, 255, 0.2); }
+        .social-icon-link.instagram:hover { background-color: #d6249f; border-color: #d6249f; }
+        .social-icon-link.telegram:hover { background-color: #1d93d2; border-color: #1d93d2; }
+        .social-icon-link.youtube:hover { background-color: #ff0000; border-color: #ff0000; }
+        .social-icon-link.github:hover { background-color: #6e40c9; border-color: #6e40c9; }
+        .social-icon-link.website:hover { background-color: var(--accent-blue); border-color: var(--accent-blue); }
 
-        /* ── Divider ─────────────────────────────────── */
-        .divider {
-            border: none;
-            border-top: 1px solid var(--border-color);
-            margin: 18px 0;
-            width: 100%;
-            transition: border-color 0.3s;
-        }
+        .divider { border: none; border-top: 1px solid var(--border-color); margin: 18px 0; }
 
-        /* ═══════════════════════════════════════
-           IMMERSIVE REVEAL classes
-           ═══════════════════════════════════════ */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
-                transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
-            will-change: transform, opacity;
-        }
-        .reveal.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .reveal-left {
-            transform: translateX(-40px);
-            opacity: 0;
-            transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
-                transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
-        }
-        .reveal-left.revealed {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .reveal-right {
-            transform: translateX(40px);
-            opacity: 0;
-            transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
-                transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
-        }
-        .reveal-right.revealed {
-            opacity: 1;
-            transform: translateX(0);
-        }
+        /* Reveal animations */
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1), transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1); will-change: transform, opacity; }
+        .reveal.revealed { opacity: 1; transform: translateY(0); }
 
-        /* ── Info Card ──────────────────────────────── */
-        .info-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 14px;
-            padding: 16px 18px;
-            margin-bottom: 12px;
-            transition: background-color 0.3s, border-color 0.3s, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: var(--shadow-sm);
-        }
-        .info-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--accent-blue);
-        }
-        .info-card-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 8px;
-        }
-        .info-card-header i {
-            font-size: 18px;
-            color: var(--accent-blue);
-        }
-        .info-card-header .info-label {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.4px;
-        }
-        .info-card-header .info-badge {
-            font-size: 11px;
-            font-weight: 600;
-            padding: 3px 10px;
-            border-radius: 12px;
-            background-color: rgba(63, 185, 80, 0.12);
-            color: var(--accent-green);
-            border: 1px solid rgba(63, 185, 80, 0.3);
-            margin-left: auto;
-            animation: badgePulse 3s ease-in-out infinite;
-        }
-        @keyframes badgePulse {
-            0%,
-            100% {
-                box-shadow: 0 0 0 0 rgba(63, 185, 80, 0.4);
-            }
-            50% {
-                box-shadow: 0 0 0 8px rgba(63, 185, 80, 0);
-            }
-        }
-        .info-card-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--text-white);
-            margin-bottom: 4px;
-        }
-        .info-card-desc {
-            font-size: 13px;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
+        /* Info Card */
+        .info-card { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; padding: 16px 18px; margin-bottom: 12px; transition: all 0.3s; box-shadow: var(--shadow-sm); }
+        .info-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--accent-blue); }
+        .info-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+        .info-card-header i { font-size: 18px; color: var(--accent-blue); }
+        .info-card-header .info-label { font-size: 13px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; }
+        .info-card-header .info-badge { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 12px; background-color: rgba(63, 185, 80, 0.12); color: var(--accent-green); border: 1px solid rgba(63, 185, 80, 0.3); margin-left: auto; animation: badgePulse 3s ease-in-out infinite; }
+        @keyframes badgePulse { 0%,100% { box-shadow: 0 0 0 0 rgba(63, 185, 80, 0.4); } 50% { box-shadow: 0 0 0 8px rgba(63, 185, 80, 0); } }
+        .info-card-title { font-size: 15px; font-weight: 600; color: var(--text-white); margin-bottom: 4px; }
+        .info-card-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
 
-        /* ── Contact Items ───────────────────────────── */
-        .contact-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-top: 6px;
-        }
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 11px 14px;
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            text-decoration: none;
-            color: var(--text-primary);
-            transition: background-color 0.2s, border-color 0.2s,
-                transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-            font-size: 13px;
-        }
-        .contact-item:hover {
-            border-color: var(--accent-blue);
-            background-color: var(--bg-card);
-            transform: translateX(6px);
-            box-shadow: var(--shadow-sm);
-        }
-        .contact-item:active {
-            transform: scale(0.97);
-            transition: transform 0.1s;
-        }
-        .contact-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            flex-shrink: 0;
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .contact-item:hover .contact-icon {
-            transform: rotate(-10deg) scale(1.1);
-        }
-        .contact-icon.email {
-            background-color: rgba(234, 67, 53, 0.15);
-            color: #ea4335;
-        }
-        .contact-icon.telegram-icon {
-            background-color: rgba(42, 171, 238, 0.15);
-            color: #2aabee;
-        }
-        .contact-icon.channel-icon {
-            background-color: rgba(139, 92, 246, 0.15);
-            color: #8b5cf6;
-        }
-        .contact-text {
-            flex: 1;
-            min-width: 0;
-        }
-        .contact-label {
-            font-size: 11px;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-            font-weight: 500;
-        }
-        .contact-value {
-            font-size: 13px;
-            color: var(--text-white);
-            font-weight: 500;
-            word-break: break-all;
-        }
-        .contact-arrow {
-            color: var(--text-secondary);
-            font-size: 12px;
-            transition: color 0.2s, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .contact-item:hover .contact-arrow {
-            color: var(--accent-blue);
-            transform: translateX(4px);
-        }
+        /* Contact Items */
+        .contact-list { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+        .contact-item { display: flex; align-items: center; gap: 12px; padding: 11px 14px; background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; text-decoration: none; color: var(--text-primary); transition: all 0.25s; font-size: 13px; }
+        .contact-item:hover { border-color: var(--accent-blue); background-color: var(--bg-card); transform: translateX(6px); }
+        .contact-icon { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .contact-item:hover .contact-icon { transform: rotate(-10deg) scale(1.1); }
+        .contact-icon.email { background-color: rgba(234, 67, 53, 0.15); color: #ea4335; }
+        .contact-icon.telegram-icon { background-color: rgba(42, 171, 238, 0.15); color: #2aabee; }
+        .contact-icon.channel-icon { background-color: rgba(139, 92, 246, 0.15); color: #8b5cf6; }
+        .contact-text { flex: 1; min-width: 0; }
+        .contact-label { font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.3px; font-weight: 500; }
+        .contact-value { font-size: 13px; color: var(--text-white); font-weight: 500; word-break: break-all; }
+        .contact-arrow { color: var(--text-secondary); font-size: 12px; transition: color 0.2s, transform 0.3s; }
+        .contact-item:hover .contact-arrow { color: var(--accent-blue); transform: translateX(4px); }
 
-        /* ── Agency Services Section ────────────────── */
-        .services-section {
-            margin-top: 24px;
+        /* Services Section */
+        .services-section { margin-top: 24px; }
+        .services-heading { font-size: 15px; font-weight: 600; color: var(--text-white); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .services-heading i { color: var(--accent-blue); }
+        .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        @media (max-width: 520px) { .services-grid { grid-template-columns: 1fr; } }
+        
+        .service-card { background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; transition: all 0.2s, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: var(--shadow-sm); transform-style: preserve-3d; perspective: 600px; }
+        .service-card:hover { border-color: var(--accent-blue); box-shadow: var(--shadow-md), 0 0 20px rgba(88, 166, 255, 0.1); }
+        .service-card-title { font-size: 14px; font-weight: 600; color: var(--text-white); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .service-card-title i { font-size: 16px; color: var(--accent-blue); transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .service-card:hover .service-card-title i { transform: rotate(-8deg) scale(1.2); }
+        .service-list { list-style: none; padding: 0; margin: 0; }
+        .service-list li { font-size: 12px; color: var(--text-secondary); margin-bottom: 6px; padding-left: 16px; position: relative; line-height: 1.5; transition: color 0.2s, transform 0.2s; }
+        .service-list li:hover { color: var(--text-primary); transform: translateX(4px); }
+        .service-list li::before { content: "•"; position: absolute; left: 0; color: var(--accent-blue); font-weight: bold; }
+
+        /* Repository Grid - MOBILE: 1 column, TABLET: also 1 column for better readability */
+        .repo-section-label { font-size: 11px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; margin: 28px 0 10px; padding-left: 4px; }
+        .repo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        /* Tablet and mobile: force single column (stack vertically) */
+        @media (max-width: 768px) {
+            .repo-grid { grid-template-columns: 1fr !important; }
         }
-        .services-heading {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--text-white);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            letter-spacing: -0.3px;
-        }
-        .services-heading i {
-            color: var(--accent-blue);
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
+        .repo-card { background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 16px; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 8px; transition: all 0.3s; box-shadow: var(--shadow-sm); }
+        .repo-card:hover { border-color: var(--card-hover-border); transform: translateY(-4px); box-shadow: var(--shadow-md); background-color: var(--bg-card); }
+        .repo-card-top { display: flex; align-items: center; gap: 8px; }
+        .repo-icon { color: var(--text-secondary); font-size: 14px; transition: color 0.2s, transform 0.3s; }
+        .repo-card:hover .repo-icon { color: var(--accent-blue); transform: rotate(-5deg) scale(1.15); }
+        .repo-name-text { font-size: 13px; font-weight: 600; color: var(--text-link); word-break: break-word; }
+        .visibility-tag { font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 10px; text-transform: uppercase; margin-left: auto; background-color: var(--tag-public-bg); color: var(--tag-public-text); border: 1px solid rgba(31, 111, 235, 0.4); }
+        .repo-description { font-size: 11px; color: var(--text-secondary); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .repo-card-bottom { display: flex; align-items: center; gap: 12px; font-size: 11px; color: var(--text-secondary); margin-top: auto; }
+        .repo-language { display: flex; align-items: center; gap: 5px; }
+        .repo-lang-dot { width: 9px; height: 9px; border-radius: 50%; }
+        .repo-lang-dot.php { background-color: #4f5d95; }
+        .repo-stars i { color: var(--accent-orange); transition: transform 0.3s; }
+        .repo-card:hover .repo-stars i { transform: scale(1.3) rotate(-10deg); }
+
+        /* Footer */
+        .page-footer { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border-color); font-size: 11px; color: var(--text-secondary); display: flex; align-items: center; justify-content: center; gap: 5px; flex-wrap: wrap; }
+        .page-footer a { color: var(--text-link); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .page-footer a:hover { text-decoration: underline; text-shadow: 0 0 6px rgba(88, 166, 255, 0.4); }
+        .footer-heart-icon { color: #f85149; font-size: 12px; animation: heartbeat 1.4s ease infinite; display: inline-block; }
+        @keyframes heartbeat { 0%,100% { transform: scale(1); } 25% { transform: scale(1.25); } 50% { transform: scale(1); } 75% { transform: scale(1.18); } }
         @media (max-width: 520px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            .repo-grid {
-                grid-template-columns: 1fr;
-            }
-            .profile-avatar,
-            .avatar-wrapper {
-                width: 100px;
-                height: 100px;
-            }
-            .profile-name-display {
-                font-size: 22px;
-            }
-            .profile-username-display {
-                font-size: 14px;
-            }
-            .top-nav {
-                padding: 0 12px;
-                height: 44px;
-            }
-            .nav-brand {
-                font-size: 13px;
-            }
-            .nav-brand i {
-                font-size: 20px;
-            }
-            .theme-toggle-btn {
-                width: 30px;
-                height: 30px;
-                font-size: 14px;
-            }
-        }
-        .service-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 16px 16px;
-            transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s,
-                transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: var(--shadow-sm);
-            /* 3D tilt */
-            transform-style: preserve-3d;
-            perspective: 600px;
-            will-change: transform;
-        }
-        .service-card:hover {
-            border-color: var(--accent-blue);
-            box-shadow: var(--shadow-md), 0 0 20px rgba(88, 166, 255, 0.1);
-        }
-        .service-card-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-white);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .service-card-title i {
-            font-size: 16px;
-            color: var(--accent-blue);
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .service-card:hover .service-card-title i {
-            transform: rotate(-8deg) scale(1.2);
-        }
-        .service-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .service-list li {
-            font-size: 12px;
-            color: var(--text-secondary);
-            margin-bottom: 6px;
-            padding-left: 16px;
-            position: relative;
-            line-height: 1.5;
-            transition: color 0.2s, transform 0.2s;
-        }
-        .service-list li:hover {
-            color: var(--text-primary);
-            transform: translateX(4px);
-        }
-        .service-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent-blue);
-            font-weight: bold;
-        }
-        .service-list li:last-child {
-            margin-bottom: 0;
-        }
-
-        /* ── Repository Cards ────────────────────────── */
-        .repo-section-label {
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin: 28px 0 10px;
-            padding-left: 4px;
-        }
-        .repo-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-        .repo-card {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 14px 16px;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            transition: background-color 0.2s, border-color 0.2s,
-                transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-                box-shadow 0.3s;
-            box-shadow: var(--shadow-sm);
-            outline: none;
-            will-change: transform;
-        }
-        .repo-card:hover {
-            border-color: var(--card-hover-border);
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md), 0 0 0 1px rgba(88, 166, 255, 0.15);
-            background-color: var(--bg-card);
-        }
-        .repo-card:active {
-            transform: scale(0.96);
-            transition: transform 0.1s;
-        }
-        .repo-card-top {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .repo-icon {
-            color: var(--text-secondary);
-            font-size: 14px;
-            transition: color 0.2s, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .repo-card:hover .repo-icon {
-            color: var(--accent-blue);
-            transform: rotate(-5deg) scale(1.15);
-        }
-        .repo-name-text {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text-link);
-            word-break: break-word;
-        }
-        .repo-card:hover .repo-name-text {
-            text-decoration: underline;
-        }
-        .visibility-tag {
-            font-size: 9px;
-            font-weight: 700;
-            padding: 2px 7px;
-            border-radius: 10px;
-            text-transform: uppercase;
-            margin-left: auto;
-        }
-        .visibility-tag.public {
-            background-color: var(--tag-public-bg);
-            color: var(--tag-public-text);
-            border: 1px solid rgba(31, 111, 235, 0.4);
-        }
-        .repo-description {
-            font-size: 11px;
-            color: var(--text-secondary);
-            line-height: 1.5;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .repo-card-bottom {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 11px;
-            color: var(--text-secondary);
-            margin-top: auto;
-        }
-        .repo-language {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .repo-lang-dot {
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-        }
-        .repo-lang-dot.php {
-            background-color: #4f5d95;
-        }
-        .repo-stars i {
-            color: var(--accent-orange);
-            font-size: 10px;
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .repo-card:hover .repo-stars i {
-            transform: scale(1.3) rotate(-10deg);
-        }
-
-        /* ── Footer ──────────────────────────────────── */
-        .page-footer {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 11px;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            flex-wrap: wrap;
-        }
-        .page-footer a {
-            color: var(--text-link);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s, text-shadow 0.2s;
-        }
-        .page-footer a:hover {
-            text-decoration: underline;
-            text-shadow: 0 0 6px rgba(88, 166, 255, 0.4);
-        }
-        .footer-heart-icon {
-            color: #f85149;
-            font-size: 12px;
-            animation: heartbeat 1.4s ease infinite;
-            display: inline-block;
-        }
-        @keyframes heartbeat {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-            25% {
-                transform: scale(1.25);
-            }
-            50% {
-                transform: scale(1);
-            }
-            75% {
-                transform: scale(1.18);
-            }
+            .profile-avatar, .avatar-wrapper { width: 100px; height: 100px; }
+            .profile-name-display { font-size: 22px; }
+            .top-nav { padding: 0 12px; height: 44px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ═══════════════════════════════════════
-         SPLASH LOADER
-         ═══════════════════════════════════════ -->
     <div class="splash-loader" id="splashLoader">
         <div class="loader-spinner"></div>
         <p class="loader-text">Loading profile…</p>
     </div>
 
-    <!-- ═══════════════════════════════════════
-         CUSTOM CURSOR
-         ═══════════════════════════════════════ -->
     <div class="cursor-dot" id="cursorDot"></div>
     <div class="cursor-ring" id="cursorRing"></div>
-
-    <!-- ═══════════════════════════════════════
-         PARTICLE CANVAS (Exploding objects)
-         ═══════════════════════════════════════ -->
     <canvas id="particleCanvas"></canvas>
 
-    <!-- ═══════════════════════════════════════
-         TOP NAVIGATION (with theme toggle)
-         ═══════════════════════════════════════ -->
     <nav class="top-nav">
-        <div class="nav-left">
-            <a href="#" class="nav-brand">
-                <i class="fa-brands fa-telegram"></i> <span>Profile</span>
-            </a>
-        </div>
-        <div class="nav-right">
-            <button class="theme-toggle-btn" id="themeToggle" title="Toggle dark/light mode">
-                <i class="fa-solid fa-moon" id="themeIcon"></i>
-            </button>
-            <img src="" class="nav-avatar-sm" id="navAvatar" alt="Avatar" width="30" height="30" loading="lazy">
-        </div>
+        <div class="nav-left"><a href="#" class="nav-brand"><i class="fa-brands fa-telegram"></i> <span>Profile</span></a></div>
+        <div class="nav-right"><button class="theme-toggle-btn" id="themeToggle"><i class="fa-solid fa-moon" id="themeIcon"></i></button><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2358a6ff'/%3E%3C/svg%3E" class="nav-avatar-sm" id="navAvatar" alt="Avatar"></div>
     </nav>
 
-    <!-- ═══════════════════════════════════════
-         MAIN PROFILE
-         ═══════════════════════════════════════ -->
     <main class="profile-container">
-        <div class="profile-header-section " id="profileHeaderParallax">
+        <div class="profile-header-section" id="profileHeaderParallax">
             <div class="avatar-wrapper" data-tilt data-tilt-max="8" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
                 <div class="avatar-glow-ring"></div>
-                <img src="" class="profile-avatar" id="profileAvatar" alt="Profile photo" width="120" height="120" loading="eager">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%2358a6ff'/%3E%3C/svg%3E" class="profile-avatar" id="profileAvatar" alt="Profile photo">
             </div>
             <h1 class="profile-name-display" id="profileName">Md Hamza Dev</h1>
             <p class="profile-username-display" id="profileUsername">@mdhamza_dev</p>
-
             <div class="social-icons-row">
-                <a href="#" class="social-icon-link instagram" target="_blank" id="socialInstagram" aria-label="Instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="#" class="social-icon-link telegram" target="_blank" id="socialTelegram" aria-label="Telegram">
-                    <i class="fa-brands fa-telegram"></i>
-                </a>
-                <a href="#" class="social-icon-link youtube" target="_blank" id="socialYouTube" aria-label="YouTube">
-                    <i class="fa-brands fa-youtube"></i>
-                </a>
-                <a href="#" class="social-icon-link github" target="_blank" id="socialGitHub" aria-label="GitHub">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="#" class="social-icon-link website" target="_blank" id="socialWebsite" aria-label="Website">
-                    <i class="fa-solid fa-globe"></i>
-                </a>
+                <a href="#" class="social-icon-link instagram" target="_blank" id="socialInstagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon-link telegram" target="_blank" id="socialTelegram"><i class="fa-brands fa-telegram"></i></a>
+                <a href="#" class="social-icon-link youtube" target="_blank" id="socialYouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="social-icon-link github" target="_blank" id="socialGitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="social-icon-link website" target="_blank" id="socialWebsite"><i class="fa-solid fa-globe"></i></a>
             </div>
         </div>
-
         <hr class="divider">
-
-        <!-- Info card -->
-        <div class="info-card reveal" id="infoCardReveal">
-            <div class="info-card-header">
-                <i class="fa-solid fa-circle-info"></i>
-                <span class="info-label">Developer Profile</span>
-                <span class="info-badge" id="subscriberBadge">Website developer</span>
-            </div>
+        <div class="info-card reveal">
+            <div class="info-card-header"><i class="fa-solid fa-circle-info"></i><span class="info-label">Developer Profile</span><span class="info-badge" id="subscriberBadge">Website developer</span></div>
             <div class="info-card-title" id="infoCardTitle">INFO — Md Hamza Dev</div>
             <p class="info-card-desc" id="infoCardDesc">Full‑stack developer building authentication systems & web solutions.</p>
         </div>
-
-        <!-- Contact items -->
         <div class="contact-list reveal">
-            <a href="#" class="contact-item" id="contactEmail" target="_blank">
-                <span class="contact-icon email"><i class="fa-solid fa-envelope"></i></span>
-                <span class="contact-text"><span class="contact-label">Email</span><span class="contact-value" id="contactEmailValue">contact@techwithths.in</span></span>
-                <i class="fa-solid fa-chevron-right contact-arrow"></i>
-            </a>
-            <a href="#" class="contact-item" id="contactTelegram" target="_blank">
-                <span class="contact-icon telegram-icon"><i class="fa-brands fa-telegram"></i></span>
-                <span class="contact-text"><span class="contact-label">Telegram</span><span class="contact-value" id="contactTelegramValue">@mdhamza_dev</span></span>
-                <i class="fa-solid fa-chevron-right contact-arrow"></i>
-            </a>
-            <a href="#" class="contact-item" id="contactChannel" target="_blank">
-                <span class="contact-icon channel-icon"><i class="fa-solid fa-satellite-dish"></i></span>
-                <span class="contact-text"><span class="contact-label">Developer Channel</span><span class="contact-value" id="contactChannelValue">@techwithths</span></span>
-                <i class="fa-solid fa-chevron-right contact-arrow"></i>
-            </a>
-            <a href="#" class="contact-item" id="contactGroup" target="_blank">
-                <span class="contact-icon channel-icon" style="background-color: rgba(236,72,153,0.12);color:#ec4899;">
-                    <i class="fa-solid fa-users"></i>
-                </span>
-                <span class="contact-text"><span class="contact-label">Developer Group</span><span class="contact-value" id="contactGroupValue">@techwithths_group</span></span>
-                <i class="fa-solid fa-chevron-right contact-arrow"></i>
-            </a>
+            <a href="#" class="contact-item" id="contactEmail" target="_blank"><span class="contact-icon email"><i class="fa-solid fa-envelope"></i></span><span class="contact-text"><span class="contact-label">Email</span><span class="contact-value" id="contactEmailValue">contact@techwithths.in</span></span><i class="fa-solid fa-chevron-right contact-arrow"></i></a>
+            <a href="#" class="contact-item" id="contactTelegram" target="_blank"><span class="contact-icon telegram-icon"><i class="fa-brands fa-telegram"></i></span><span class="contact-text"><span class="contact-label">Telegram</span><span class="contact-value" id="contactTelegramValue">@mdhamza_dev</span></span><i class="fa-solid fa-chevron-right contact-arrow"></i></a>
+            <a href="#" class="contact-item" id="contactChannel" target="_blank"><span class="contact-icon channel-icon"><i class="fa-solid fa-satellite-dish"></i></span><span class="contact-text"><span class="contact-label">Developer Channel</span><span class="contact-value" id="contactChannelValue">@techwithths</span></span><i class="fa-solid fa-chevron-right contact-arrow"></i></a>
+            <a href="#" class="contact-item" id="contactGroup" target="_blank"><span class="contact-icon channel-icon" style="background-color: rgba(236,72,153,0.12);color:#ec4899;"><i class="fa-solid fa-users"></i></span><span class="contact-text"><span class="contact-label">Developer Group</span><span class="contact-value" id="contactGroupValue">@techwithths_group</span></span><i class="fa-solid fa-chevron-right contact-arrow"></i></a>
         </div>
-
-        <!-- My Agency Services -->
         <div class="services-section reveal">
-            <h2 class="services-heading">
-                <i class="fa-solid fa-briefcase"></i> My Agency Services
-            </h2>
+            <h2 class="services-heading"><i class="fa-solid fa-briefcase"></i> My Agency Services</h2>
             <div class="services-grid">
-                <div class="service-card" data-tilt data-tilt-max="6" data-tilt-speed="300" data-tilt-glare data-tilt-max-glare="0.15">
-                    <div class="service-card-title">
-                        <i class="fa-solid fa-code"></i> Web Development & Ecosystems
-                    </div>
-                    <ul class="service-list">
-                        <li>Custom Web Applications (PHP, HTML, CSS, JS, etc.)</li>
-                        <li>E-commerce (Shopify, WooCommerce)</li>
-                        <li>Progressive Web Apps (PWAs)</li>
-                        <li>API Development & Integration</li>
-                    </ul>
-                </div>
-                <div class="service-card" data-tilt data-tilt-max="6" data-tilt-speed="300" data-tilt-glare data-tilt-max-glare="0.15">
-                    <div class="service-card-title">
-                        <i class="fa-solid fa-robot"></i> AI Implementation & Automation
-                    </div>
-                    <ul class="service-list">
-                        <li>Conversational AI Agents (chatbots)</li>
-                        <li>AI Workflow Automation</li>
-                        <li>AI-Powered Personalisation</li>
-                        <li>AI Voice Receptionists</li>
-                    </ul>
-                </div>
-                <div class="service-card" data-tilt data-tilt-max="6" data-tilt-speed="300" data-tilt-glare data-tilt-max-glare="0.15">
-                    <div class="service-card-title">
-                        <i class="fa-solid fa-shield-haltered"></i> Specialized Technical Services
-                    </div>
-                    <ul class="service-list">
-                        <li>Server-Side Tracking (ad-blocker proof)</li>
-                        <li>Cybersecurity & VAPT</li>
-                        <li>Compliance Engineering (GDPR, EU AI Act)</li>
-                        <li>Cloud Infrastructure (AWS, Azure, GCP)</li>
-                    </ul>
-                </div>
-                <div class="service-card" data-tilt data-tilt-max="6" data-tilt-speed="300" data-tilt-glare data-tilt-max-glare="0.15">
-                    <div class="service-card-title">
-                        <i class="fa-solid fa-magnifying-glass-chart"></i> SEO & Generative Engine Optimization
-                    </div>
-                    <ul class="service-list">
-                        <li>Traditional Technical SEO</li>
-                        <li>Generative Engine Optimization (GEO)</li>
-                        <li>Programmatic SEO (hundreds of pages)</li>
-                    </ul>
-                </div>
-                <div class="service-card" data-tilt data-tilt-max="6" data-tilt-speed="300" data-tilt-glare data-tilt-max-glare="0.15">
-                    <div class="service-card-title">
-                        <i class="fa-solid fa-rectangle-ad"></i> Performance Ads
-                    </div>
-                    <ul class="service-list">
-                        <li>Meta Ads Management (Facebook & Instagram)</li>
-                        <li>Retargeting & Omni-channel Ads</li>
-                        <li>Conversion Rate Optimization (CRO)</li>
-                    </ul>
-                </div>
+                <div class="service-card" data-tilt data-tilt-max="6" data-tilt-speed="300"><div class="service-card-title"><i class="fa-solid fa-code"></i> Web Development & Ecosystems</div><ul class="service-list"><li>Custom Web Applications (PHP, HTML, CSS, JS, etc.)</li><li>E-commerce (Shopify, WooCommerce)</li><li>Progressive Web Apps (PWAs)</li><li>API Development & Integration</li></ul></div>
+                <div class="service-card" data-tilt data-tilt-max="6" data-tilt-speed="300"><div class="service-card-title"><i class="fa-solid fa-robot"></i> AI Implementation & Automation</div><ul class="service-list"><li>Conversational AI Agents (chatbots)</li><li>AI Workflow Automation</li><li>AI-Powered Personalisation</li><li>AI Voice Receptionists</li></ul></div>
+                <!-- Added HTML ICON to Specialized Technical Services -->
+                <div class="service-card" data-tilt data-tilt-max="6" data-tilt-speed="300"><div class="service-card-title"><i class="fa-brands fa-html5"></i> Specialized Technical Services</div><ul class="service-list"><li>Server-Side Tracking (ad-blocker proof)</li><li>Cybersecurity & VAPT</li><li>Compliance Engineering (GDPR, EU AI Act)</li><li>Cloud Infrastructure (AWS, Azure, GCP)</li></ul></div>
+                <div class="service-card" data-tilt data-tilt-max="6" data-tilt-speed="300"><div class="service-card-title"><i class="fa-solid fa-magnifying-glass-chart"></i> SEO & Generative Engine Optimization</div><ul class="service-list"><li>Traditional Technical SEO</li><li>Generative Engine Optimization (GEO)</li><li>Programmatic SEO (hundreds of pages)</li></ul></div>
+                <div class="service-card" data-tilt data-tilt-max="6" data-tilt-speed="300"><div class="service-card-title"><i class="fa-solid fa-rectangle-ad"></i> Performance Ads</div><ul class="service-list"><li>Meta Ads Management (Facebook & Instagram)</li><li>Retargeting & Omni-channel Ads</li><li>Conversion Rate Optimization (CRO)</li></ul></div>
             </div>
         </div>
-
-        <!-- Repositories -->
         <p class="repo-section-label reveal">Popular Repositories</p>
         <div class="repo-grid" id="repoGrid"></div>
-
-        <footer class="page-footer reveal">
-            <span>&copy; <span id="copyrightYear">2026</span></span>
-            <span>·</span>
-            <a href="#" id="footerGithubLink">mdhamzadev</a>
-            <span>·</span>
-            <span>Built with</span>
-            <i class="fa-solid fa-heart footer-heart-icon"></i>
-            <span>·</span>
-            <span>All rights reserved.</span>
-        </footer>
+        <footer class="page-footer reveal"><span>&copy; <span id="copyrightYear">2026</span></span><span>·</span><a href="#" id="footerGithubLink">mdhamzadev</a><span>·</span><span>Built with</span><i class="fa-solid fa-heart footer-heart-icon"></i><span>·</span><span>All rights reserved.</span></footer>
     </main>
 
-    <!-- ═══════════════════════════════════════
-         SCRIPTS (config, theme, animations)
-         ═══════════════════════════════════════ -->
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
     <script>
         (function() {
-            // ╔══════════════════════════════════╗
-            // ║   🔧 CENTRAL CONFIGURATION    ║
-            // ╚══════════════════════════════════╝
             const CONFIG = {
                 fullName: 'Md Hamza Dev',
                 username: 'mdhamza_dev',
                 githubUsername: 'mdhamzadev',
                 profileImageUrl: 'https://avatars.githubusercontent.com/u/151901211?v=4&size=256',
-
                 bio: 'Full-stack developer building authentication systems & web solutions. Open-source enthusiast. Join my developer channels for resources and support.',
                 infoTitle: 'INFO — Md Hamza Dev',
-                subscriberCount: Website developer,
-
+                subscriberBadgeText: 'Website developer',
                 email: 'contact@techwithths.in',
                 telegramUsername: 'mdhamza_dev',
                 devChannel: 'techwithths',
                 devGroup: 'techwithths_group',
-
                 githubProfileUrl: 'https://github.com/mdhamzadev',
                 websiteUrl: 'https://www.techwithths.in',
                 youtubeUrl: 'https://youtube.com/@techwithths',
@@ -1166,340 +398,132 @@
                 telegramChannelUrl: 'https://t.me/techwithths',
                 telegramGroupUrl: 'https://t.me/techwithths_group',
                 emailMailtoUrl: 'mailto:contact@techwithths.in',
-
-                repositories: [{
-                    name: 'telegram-oauth-login',
-                    url: 'https://github.com/mdhamzadev/telegram-oauth-login',
-                    description: 'Secure Telegram login system using Telegram Bot APIs — seamless user authentication, lightweight and fast, easy to integrate.',
-                    language: 'PHP',
-                    langClass: 'php',
-                    stars: 0,
-                    visibility: 'Public'
-                }, {
-                    name: 'php-authentication-system',
-                    url: 'https://github.com/mdhamzadev/php-authentication-system',
-                    description: 'Authentication system with Google login & manual register built using PHP, HTML, CSS, JavaScript, and MySQL.',
-                    language: 'PHP',
-                    langClass: 'php',
-                    stars: 1,
-                    visibility: 'Public'
-                }]
+                repositories: [
+                    { name: 'telegram-oauth-login', url: 'https://github.com/mdhamzadev/telegram-oauth-login', description: 'Secure Telegram login system using Telegram Bot APIs — seamless user authentication, lightweight and fast, easy to integrate.', language: 'PHP', langClass: 'php', stars: 0, visibility: 'Public' },
+                    { name: 'php-authentication-system', url: 'https://github.com/mdhamzadev/php-authentication-system', description: 'Authentication system with Google login & manual register built using PHP, HTML, CSS, JavaScript, and MySQL.', language: 'PHP', langClass: 'php', stars: 1, visibility: 'Public' }
+                ]
             };
 
-            // ══════════════════════════════════
-            // 🌗 THEME LOGIC
-            // ══════════════════════════════════
+            // Theme
             const body = document.body;
             const themeToggle = document.getElementById('themeToggle');
             const themeIcon = document.getElementById('themeIcon');
-
             function setTheme(mode) {
-                if (mode === 'light') {
-                    body.classList.add('light');
-                    if (themeIcon) themeIcon.className = 'fa-solid fa-sun';
-                    localStorage.setItem('theme', 'light');
-                } else {
-                    body.classList.remove('light');
-                    if (themeIcon) themeIcon.className = 'fa-solid fa-moon';
-                    localStorage.setItem('theme', 'dark');
-                }
+                if (mode === 'light') { body.classList.add('light'); if(themeIcon) themeIcon.className = 'fa-solid fa-sun'; localStorage.setItem('theme', 'light'); }
+                else { body.classList.remove('light'); if(themeIcon) themeIcon.className = 'fa-solid fa-moon'; localStorage.setItem('theme', 'dark'); }
             }
-            setTheme(localStorage.getItem('theme') || 'dark');
-            themeToggle.addEventListener('click', () => {
-                setTheme(body.classList.contains('light') ? 'dark' : 'light');
-            });
+            setTheme(localStorage.getItem('theme') === 'light' ? 'light' : 'dark');
+            if(themeToggle) themeToggle.addEventListener('click', () => setTheme(body.classList.contains('light') ? 'dark' : 'light'));
 
-            // ══════════════════════════════════
-            // 📦 POPULATE DOM FROM CONFIG
-            // ══════════════════════════════════
-            document.getElementById('dynamic-favicon').href = CONFIG.profileImageUrl;
+            // Populate
+            const setSrc = (id, src) => { const el = document.getElementById(id); if(el) el.src = src; };
+            const setText = (id, txt) => { const el = document.getElementById(id); if(el) el.textContent = txt; };
+            const setHref = (id, href) => { const el = document.getElementById(id); if(el) el.href = href; };
+            setSrc('dynamic-favicon', CONFIG.profileImageUrl);
             document.title = CONFIG.fullName + ' · Telegram Style Profile';
-
-            document.getElementById('navAvatar').src = CONFIG.profileImageUrl;
-            document.getElementById('profileAvatar').src = CONFIG.profileImageUrl;
-            document.getElementById('profileName').textContent = CONFIG.fullName;
-            document.getElementById('profileUsername').textContent = '@' + CONFIG.username;
-
-            document.getElementById('socialInstagram').href = CONFIG.instagramUrl;
-            document.getElementById('socialTelegram').href = CONFIG.telegramProfileUrl;
-            document.getElementById('socialYouTube').href = CONFIG.youtubeUrl;
-            document.getElementById('socialGitHub').href = CONFIG.githubProfileUrl;
-            document.getElementById('socialWebsite').href = CONFIG.websiteUrl;
-
-            document.getElementById('subscriberBadge').textContent = CONFIG.subscriberCount + ' subscribers';
-            document.getElementById('infoCardTitle').textContent = CONFIG.infoTitle;
-            document.getElementById('infoCardDesc').textContent = CONFIG.bio;
-
-            document.getElementById('contactEmailValue').textContent = CONFIG.email;
-            document.getElementById('contactTelegramValue').textContent = '@' + CONFIG.telegramUsername;
-            document.getElementById('contactChannelValue').textContent = '@' + CONFIG.devChannel;
-            document.getElementById('contactGroupValue').textContent = '@' + CONFIG.devGroup;
-
-            document.getElementById('contactEmail').href = CONFIG.emailMailtoUrl;
-            document.getElementById('contactTelegram').href = CONFIG.telegramProfileUrl;
-            document.getElementById('contactChannel').href = CONFIG.telegramChannelUrl;
-            document.getElementById('contactGroup').href = CONFIG.telegramGroupUrl;
-
-            document.getElementById('copyrightYear').textContent = new Date().getFullYear();
+            setSrc('navAvatar', CONFIG.profileImageUrl);
+            setSrc('profileAvatar', CONFIG.profileImageUrl);
+            setText('profileName', CONFIG.fullName);
+            setText('profileUsername', '@' + CONFIG.username);
+            setHref('socialInstagram', CONFIG.instagramUrl);
+            setHref('socialTelegram', CONFIG.telegramProfileUrl);
+            setHref('socialYouTube', CONFIG.youtubeUrl);
+            setHref('socialGitHub', CONFIG.githubProfileUrl);
+            setHref('socialWebsite', CONFIG.websiteUrl);
+            const badge = document.getElementById('subscriberBadge');
+            if(badge) badge.textContent = CONFIG.subscriberBadgeText;
+            setText('infoCardTitle', CONFIG.infoTitle);
+            setText('infoCardDesc', CONFIG.bio);
+            setText('contactEmailValue', CONFIG.email);
+            setText('contactTelegramValue', '@' + CONFIG.telegramUsername);
+            setText('contactChannelValue', '@' + CONFIG.devChannel);
+            setText('contactGroupValue', '@' + CONFIG.devGroup);
+            setHref('contactEmail', CONFIG.emailMailtoUrl);
+            setHref('contactTelegram', CONFIG.telegramProfileUrl);
+            setHref('contactChannel', CONFIG.telegramChannelUrl);
+            setHref('contactGroup', CONFIG.telegramGroupUrl);
+            setText('copyrightYear', new Date().getFullYear().toString());
             const footerLink = document.getElementById('footerGithubLink');
-            footerLink.href = CONFIG.githubProfileUrl;
-            footerLink.textContent = CONFIG.githubUsername;
+            if(footerLink) { footerLink.href = CONFIG.githubProfileUrl; footerLink.textContent = CONFIG.githubUsername; }
 
             const repoGrid = document.getElementById('repoGrid');
-            repoGrid.innerHTML = '';
-            CONFIG.repositories.forEach((repo, idx) => {
-                const card = document.createElement('a');
-                card.href = repo.url;
-                card.target = '_blank';
-                card.rel = 'noopener noreferrer';
-                card.className = 'repo-card reveal';
-                card.style.transitionDelay = (idx * 0.1) + 's';
-                card.innerHTML = `
-                    <div class="repo-card-top">
-                        <i class="fa-regular fa-folder repo-icon"></i>
-                        <span class="repo-name-text">${repo.name}</span>
-                        <span class="visibility-tag public">${repo.visibility}</span>
-                    </div>
-                    <p class="repo-description">${repo.description}</p>
-                    <div class="repo-card-bottom">
-                        <span class="repo-language">
-                            <span class="repo-lang-dot ${repo.langClass}"></span> ${repo.language}
-                        </span>
-                        <span class="repo-stars">
-                            <i class="fa-regular fa-star"></i> <span>${repo.stars}</span>
-                        </span>
-                    </div>`;
-                repoGrid.appendChild(card);
-            });
+            if(repoGrid) {
+                repoGrid.innerHTML = '';
+                CONFIG.repositories.forEach((repo, idx) => {
+                    const card = document.createElement('a');
+                    card.href = repo.url;
+                    card.target = '_blank';
+                    card.rel = 'noopener noreferrer';
+                    card.className = 'repo-card reveal';
+                    card.style.transitionDelay = (idx * 0.1) + 's';
+                    card.innerHTML = `<div class="repo-card-top"><i class="fa-regular fa-folder repo-icon"></i><span class="repo-name-text">${repo.name}</span><span class="visibility-tag public">${repo.visibility}</span></div><p class="repo-description">${repo.description}</p><div class="repo-card-bottom"><span class="repo-language"><span class="repo-lang-dot ${repo.langClass}"></span> ${repo.language}</span><span class="repo-stars"><i class="fa-regular fa-star"></i> <span>${repo.stars}</span></span></div>`;
+                    repoGrid.appendChild(card);
+                });
+            }
 
-            // ══════════════════════════════════
-            // 💧 SPLASH LOADER
-            // ══════════════════════════════════
+            // Loader
             window.addEventListener('load', () => {
                 const loader = document.getElementById('splashLoader');
-                if (loader) {
-                    setTimeout(() => {
-                        loader.classList.add('hidden');
-                    }, 600);
-                }
-                // Re-observe reveals after loader hides
+                if(loader) setTimeout(() => loader.classList.add('hidden'), 600);
                 setTimeout(() => {
+                    document.querySelectorAll('.reveal').forEach(el => { if(el.getBoundingClientRect().top < window.innerHeight) el.classList.add('revealed'); });
                     observeReveals();
                 }, 700);
+                if(typeof VanillaTilt !== 'undefined') VanillaTilt.init(document.querySelectorAll('[data-tilt]'), { max: 6, speed: 400, glare: true, 'max-glare': 0.2 });
             });
 
-            // ══════════════════════════════════
-            // 🖱️ CUSTOM CURSOR (Glow + Trail)
-            // ══════════════════════════════════
-            const cursorDot = document.getElementById('cursorDot');
-            const cursorRing = document.getElementById('cursorRing');
-            let mouseX = 0,
-                mouseY = 0;
-            let ringX = 0,
-                ringY = 0;
-
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                if (cursorDot) {
-                    cursorDot.style.left = mouseX + 'px';
-                    cursorDot.style.top = mouseY + 'px';
-                    cursorDot.style.transform = 'translate(-50%, -50%)';
-                }
-            });
-
-            function animateRing() {
-                ringX += (mouseX - ringX) * 0.15;
-                ringY += (mouseY - ringY) * 0.15;
-                if (cursorRing) {
-                    cursorRing.style.left = ringX + 'px';
-                    cursorRing.style.top = ringY + 'px';
-                }
-                requestAnimationFrame(animateRing);
-            }
-            animateRing();
-
-            // Enlarge cursor on links/buttons
-            const interactiveEls = document.querySelectorAll(
-                'a, button, .repo-card, .service-card, .contact-item, .social-icon-link, .profile-avatar');
-            interactiveEls.forEach(el => {
-                el.addEventListener('mouseenter', () => {
-                    if (cursorDot) {
-                        cursorDot.style.width = '18px';
-                        cursorDot.style.height = '18px';
-                        cursorDot.style.background = 'rgba(88,166,255,0.7)';
-                    }
-                    if (cursorRing) {
-                        cursorRing.style.width = '45px';
-                        cursorRing.style.height = '45px';
-                        cursorRing.style.borderColor = 'rgba(88,166,255,0.8)';
-                    }
-                });
-                el.addEventListener('mouseleave', () => {
-                    if (cursorDot) {
-                        cursorDot.style.width = '10px';
-                        cursorDot.style.height = '10px';
-                        cursorDot.style.background = 'var(--accent-blue)';
-                    }
-                    if (cursorRing) {
-                        cursorRing.style.width = '30px';
-                        cursorRing.style.height = '30px';
-                        cursorRing.style.borderColor = 'rgba(88,166,255,0.5)';
-                    }
-                });
-            });
-
-            // ══════════════════════════════════
-            // 💥 PARTICLE EXPLOSION CANVAS
-            // ══════════════════════════════════
-            const canvas = document.getElementById('particleCanvas');
-            const ctx = canvas.getContext('2d');
-            let particles = [];
-
-            function resizeCanvas() {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-            }
-            resizeCanvas();
-            window.addEventListener('resize', resizeCanvas);
-
-            class Particle {
-                constructor(x, y) {
-                    this.x = x;
-                    this.y = y;
-                    const angle = Math.random() * Math.PI * 2;
-                    const speed = Math.random() * 6 + 2;
-                    this.vx = Math.cos(angle) * speed;
-                    this.vy = Math.sin(angle) * speed;
-                    this.life = 1;
-                    this.decay = Math.random() * 0.02 + 0.015;
-                    this.size = Math.random() * 4 + 2;
-                    this.color = `hsl(${Math.random()*60+190}, 80%, ${Math.random()*30+55}%)`;
-                }
-                update() {
-                    this.x += this.vx;
-                    this.y += this.vy;
-                    this.vy += 0.05;
-                    this.life -= this.decay;
-                }
-                draw(ctx) {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = this.color.replace(')', `, ${this.life})`).replace('hsl',
-                        'hsla');
-                    ctx.fill();
-                }
-            }
-
-            function spawnExplosion(x, y) {
-                const count = 25;
-                for (let i = 0; i < count; i++) {
-                    particles.push(new Particle(x, y));
-                }
-            }
-
-            document.addEventListener('click', (e) => {
-                if (e.target.closest('a') || e.target.closest('button') || e.target.closest(
-                        '.service-card') ||
-                    e.target.closest('.repo-card') || e.target.closest('.contact-item') || e.target
-                    .closest('.social-icon-link')) {
-                    spawnExplosion(e.clientX, e.clientY);
-                }
-            });
-            document.addEventListener('dblclick', (e) => {
-                spawnExplosion(e.clientX, e.clientY);
-            });
-
-            function animateParticles() {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                particles = particles.filter(p => p.life > 0);
-                particles.forEach(p => {
-                    p.update();
-                    p.draw(ctx);
-                });
-                requestAnimationFrame(animateParticles);
-            }
-            animateParticles();
-
-            // ══════════════════════════════════
-            // 👁️ IMMERSIVE REVEAL (Intersection Observer)
-            // ══════════════════════════════════
             function observeReveals() {
-                const revealEls = document.querySelectorAll('.reveal');
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('revealed');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
-                revealEls.forEach(el => observer.observe(el));
+                const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('revealed'); observer.unobserve(e.target); } }); }, { threshold: 0.15 });
+                document.querySelectorAll('.reveal:not(.revealed)').forEach(el => observer.observe(el));
             }
-            observeReveals();
 
-            // ══════════════════════════════════
-            // 📜 PARALLAX SCROLL EFFECT
-            // ══════════════════════════════════
-            const profileHeader = document.getElementById('profileHeaderParallax');
-            window.addEventListener('scroll', () => {
-                const scrollY = window.scrollY;
-                if (profileHeader) {
-                    profileHeader.style.setProperty('--scroll-offset', scrollY + 'px');
-                }
+            // Cursor effects
+            const cursorDot = document.getElementById('cursorDot'), cursorRing = document.getElementById('cursorRing');
+            let mouseX=0, mouseY=0, ringX=0, ringY=0;
+            document.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; if(cursorDot) { cursorDot.style.left = mouseX+'px'; cursorDot.style.top = mouseY+'px'; cursorDot.style.transform = 'translate(-50%, -50%)'; } });
+            function animateRing() { ringX += (mouseX - ringX) * 0.15; ringY += (mouseY - ringY) * 0.15; if(cursorRing) { cursorRing.style.left = ringX+'px'; cursorRing.style.top = ringY+'px'; } requestAnimationFrame(animateRing); }
+            animateRing();
+            document.querySelectorAll('a, button, .repo-card, .service-card, .contact-item, .social-icon-link, .profile-avatar').forEach(el => {
+                el.addEventListener('mouseenter', () => { if(cursorDot) { cursorDot.style.width='18px'; cursorDot.style.height='18px'; } if(cursorRing) { cursorRing.style.width='45px'; cursorRing.style.height='45px'; cursorRing.style.borderColor='rgba(88,166,255,0.8)'; } });
+                el.addEventListener('mouseleave', () => { if(cursorDot) { cursorDot.style.width='10px'; cursorDot.style.height='10px'; } if(cursorRing) { cursorRing.style.width='30px'; cursorRing.style.height='30px'; cursorRing.style.borderColor='rgba(88,166,255,0.5)'; } });
             });
 
-            // ══════════════════════════════════
-            // 🎯 3D TILT via VanillaTilt (loaded from CDN)
-            // ══════════════════════════════════
-            if (typeof VanillaTilt !== 'undefined') {
-                VanillaTilt.init(document.querySelectorAll('[data-tilt]'), {
-                    max: 6,
-                    speed: 400,
-                    glare: true,
-                    'max-glare': 0.2,
-                });
+            // Particles
+            const canvas = document.getElementById('particleCanvas');
+            if(canvas) {
+                const ctx = canvas.getContext('2d');
+                let particles = [];
+                const resizeCanvas = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
+                resizeCanvas(); window.addEventListener('resize', resizeCanvas);
+                class Particle { constructor(x,y) { this.x=x; this.y=y; const a=Math.random()*Math.PI*2, s=Math.random()*6+2; this.vx=Math.cos(a)*s; this.vy=Math.sin(a)*s; this.life=1; this.decay=Math.random()*0.02+0.015; this.size=Math.random()*4+2; this.color=`hsl(${Math.random()*60+190},80%,${Math.random()*30+55}%)`; } update() { this.x+=this.vx; this.y+=this.vy; this.vy+=0.05; this.life-=this.decay; } draw(ctx) { ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fillStyle=this.color.replace(')',`,${this.life})`).replace('hsl','hsla'); ctx.fill(); } }
+                const spawn = (x,y) => { for(let i=0;i<25;i++) particles.push(new Particle(x,y)); };
+                document.addEventListener('click', (e) => { if(e.target.closest('a, button, .service-card, .repo-card, .contact-item, .social-icon-link')) spawn(e.clientX, e.clientY); });
+                document.addEventListener('dblclick', (e) => spawn(e.clientX, e.clientY));
+                function animate() { ctx.clearRect(0,0,canvas.width,canvas.height); particles = particles.filter(p=>p.life>0); particles.forEach(p=>{p.update(); p.draw(ctx);}); requestAnimationFrame(animate); }
+                animate();
             }
 
-            // ══════════════════════════════════
-            // 🌀 RIPPLE ON SOCIAL ICON CLICK
-            // ══════════════════════════════════
+            // Parallax
+            const header = document.getElementById('profileHeaderParallax');
+            window.addEventListener('scroll', () => { if(header) header.style.setProperty('--scroll-offset', window.scrollY+'px'); });
+
+            // Ripple
+            if(!document.getElementById('ripple-keyframes')) {
+                const s = document.createElement('style'); s.id = 'ripple-keyframes'; s.textContent = '@keyframes ripple{to{transform:scale(4);opacity:0;}}'; document.head.appendChild(s);
+            }
             document.querySelectorAll('.social-icon-link').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     const ripple = document.createElement('span');
-                    ripple.style.cssText = `
-                        position:absolute; border-radius:50%;
-                        background:rgba(255,255,255,0.3);
-                        transform:scale(0); animation:ripple 0.5s ease-out forwards;
-                        pointer-events:none; z-index:0;
-                    `;
+                    ripple.style.cssText = `position:absolute; border-radius:50%; background:rgba(255,255,255,0.3); transform:scale(0); animation:ripple 0.5s ease-out forwards; pointer-events:none; z-index:0;`;
                     const size = Math.max(btn.offsetWidth, btn.offsetHeight);
                     ripple.style.width = ripple.style.height = size + 'px';
-                    ripple.style.left = (e.clientX - btn.getBoundingClientRect().left - size / 2) +
-                        'px';
-                    ripple.style.top = (e.clientY - btn.getBoundingClientRect().top - size / 2) +
-                        'px';
+                    ripple.style.left = (e.clientX - btn.getBoundingClientRect().left - size/2) + 'px';
+                    ripple.style.top = (e.clientY - btn.getBoundingClientRect().top - size/2) + 'px';
                     btn.appendChild(ripple);
                     ripple.addEventListener('animationend', () => ripple.remove());
                 });
             });
-            if (!document.getElementById('ripple-keyframes')) {
-                const s = document.createElement('style');
-                s.id = 'ripple-keyframes';
-                s.textContent = '@keyframes ripple{to{transform:scale(4);opacity:0;}}';
-                document.head.appendChild(s);
-            }
-
-            console.log(
-                '%c🐙 %c' + CONFIG.fullName + ' %c@' + CONFIG.username + ' %c· %cAll systems ready',
-                'font-size:16px;',
-                'font-size:15px;font-weight:bold;color:#58a6ff;',
-                'font-size:13px;color:#8b949e;',
-                'font-size:11px;color:#8b949e;',
-                'font-size:11px;color:#3fb950;'
-            );
-            console.log('%c✨ Animations active: Cursor Glow · Particle Explosions · Scroll Reveal · Parallax · 3D Tilt · Micro Interactions',
-                'font-size:10px;color:#8b949e;');
+            console.log('%c✅ Profile Fully Loaded | Repo grid responsive (stack on mobile/tablet) | HTML5 icon added', 'color:#58a6ff; font-size:12px;');
         })();
     </script>
 </body>
